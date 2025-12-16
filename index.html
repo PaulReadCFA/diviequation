@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dividend Valuation Equations</title>
+
+  <style>
+    :root {
+      --color-blue:   #3c6ae5;
+      --color-green:  #15803d;
+      --color-purple: #7a46ff;
+      --color-orange: #b95b1d;
+      --color-eggplant: #733599;
+      --color-gray-200: #e5e7eb;
+      --color-gray-600: #4b5563;
+      --color-gray-800: #111827;
+
+      --font-math: 'STIX Two Math', 'Cambria Math', 'Latin Modern Math', 'XITS Math',
+                   'Asana Math', 'TeX Gyre Termes Math', 'DejaVu Math TeX Gyre',
+                   'Computer Modern', serif;
+    }
+
+    @font-face {
+      font-family: 'STIX Two Math';
+      src: local('STIX Two Math'), local('STIXTwoMath-Regular');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: transparent;
+      color: var(--color-gray-800);
+      line-height: 1.5;
+      padding: 1rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .dividend-card {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--color-gray-200);
+      border-left: 4px solid var(--color-blue);
+      border-radius: 0.75rem;
+      padding: 1.5rem 2rem;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+      color: var(--color-gray-600);
+      margin-bottom: 1.75rem;
+    }
+
+    .equation-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
+      align-items: center;
+      column-gap: 1.75rem;
+      row-gap: 0.75rem;
+      margin-bottom: 1.9rem;
+    }
+
+    .equation-label {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .label-constant  { color: var(--color-blue); }
+    .label-growth    { color: var(--color-green); }
+    .label-changing  { color: var(--color-purple); }
+
+    .equation-math {
+      text-align: left;
+      max-width: 100%;
+      overflow-x: auto;              /* keep long equations inside card */
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .equation-math math {
+      white-space: nowrap;           /* prevent weird wrapping */
+    }
+
+    math {
+      font-family: var(--font-math);
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .long-equation .equation-math math {
+      font-size: 1.0rem;             /* slightly smaller for the monster */
+    }
+
+    math mfrac {
+      margin: 0 0.2em;
+    }
+
+    math mo {
+      margin: 0 0.1em;
+    }
+
+    math msub mtext {
+      font-size: 0.75em;
+    }
+
+    @media (max-width: 700px) {
+      .dividend-card {
+        padding: 1.25rem 1.25rem;
+      }
+      .equation-row {
+        grid-template-columns: 1fr;
+        margin-bottom: 1.7rem;
+      }
+      .equation-math {
+        text-align: center;
+      }
+      math {
+        font-size: 1rem;
+      }
+      .long-equation .equation-math math {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="dividend-card" aria-labelledby="dividend-title">
+    <h2 id="dividend-title" class="sr-only">Dividend valuation equations</h2>
+
+    <p class="intro-text">
+      There are three models to equity valuation based on the present value of expected dividends.
+    </p>
+
+    <!-- Constant Dividend Equation -->
+    <div class="equation-row" role="group" aria-label="Constant Dividend Equation">
+      <p class="equation-label label-constant">
+        Constant Dividend Equation
+      </p>
+      <div class="equation-math">
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow>
+            <mi mathcolor="#3c6ae5">P</mi>
+            <mo>=</mo>
+            <mfrac>
+              <msub>
+                <mi mathcolor="#b95b1d">D</mi>
+                <mn>0</mn>
+              </msub>
+              <mi mathcolor="#733599">r</mi>
+            </mfrac>
+          </mrow>
+        </math>
+      </div>
+    </div>
+
+    <!-- Constant Dividend Growth (Equation 14) -->
+    <div class="equation-row" role="group" aria-label="Constant Dividend Growth Equation 14">
+      <p class="equation-label label-growth">
+        Constant Dividend Growth (Equation 14)
+      </p>
+      <div class="equation-math">
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow>
+            <msub>
+              <mi>PV</mi>
+              <mi>t</mi>
+            </msub>
+            <mo>=</mo>
+            <mfrac>
+              <mrow>
+                <msub>
+                  <mi mathcolor="#b95b1d">Div</mi>
+                  <mi>t</mi>
+                </msub>
+                <mo>(</mo>
+                <mn>1</mn>
+                <mo>+</mo>
+                <mi mathcolor="#15803d">g</mi>
+                <mo>)</mo>
+              </mrow>
+              <mrow>
+                <mi mathcolor="#733599">r</mi>
+                <mo>-</mo>
+                <mi mathcolor="#15803d">g</mi>
+              </mrow>
+            </mfrac>
+            <mo>=</mo>
+            <mfrac>
+              <msub>
+                <mi mathcolor="#b95b1d">Div</mi>
+                <mrow>
+                  <mi>t</mi>
+                  <mo>+</mo>
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mrow>
+                <mi mathcolor="#733599">r</mi>
+                <mo>-</mo>
+                <mi mathcolor="#15803d">g</mi>
+              </mrow>
+            </mfrac>
+          </mrow>
+        </math>
+      </div>
+    </div>
+
+    <!-- Changing Dividend Growth (Equation 15) -->
+    <div class="equation-row long-equation" role="group" aria-label="Changing Dividend Growth Equation 15">
+      <p class="equation-label label-changing">
+        Changing Dividend Growth (Equation 15)
+      </p>
+      <div class="equation-math">
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow>
+            <msub>
+              <mi>PV</mi>
+              <mn>0</mn>
+            </msub>
+            <mo>=</mo>
+
+            <munderover>
+              <mo>∑</mo>
+              <mrow>
+                <mi>i</mi>
+                <mo>=</mo>
+                <mn>1</mn>
+              </mrow>
+              <mi>n</mi>
+            </munderover>
+            <mfrac>
+              <mrow>
+                <msub>
+                  <mi mathcolor="#b95b1d">Div</mi>
+                  <mi>i</mi>
+                </msub>
+                <msup>
+                  <mrow>
+                    <mo>(</mo>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <msub>
+                      <mi mathcolor="#15803d">g</mi>
+                      <mn>1</mn>
+                    </msub>
+                    <mo>)</mo>
+                  </mrow>
+                  <mi>i</mi>
+                </msup>
+              </mrow>
+              <msup>
+                <mrow>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>+</mo>
+                  <mi mathcolor="#733599">r</mi>
+                  <mo>)</mo>
+                </mrow>
+                <mi>i</mi>
+              </msup>
+            </mfrac>
+
+            <mo>+</mo>
+
+            <munderover>
+              <mo>∑</mo>
+              <mrow>
+                <mi>j</mi>
+                <mo>=</mo>
+                <mrow>
+                  <mi>n</mi>
+                  <mo>+</mo>
+                  <mn>1</mn>
+                </mrow>
+              </mrow>
+              <mo>∞</mo>
+            </munderover>
+            <mfrac>
+              <mrow>
+                <msub>
+                  <mi mathcolor="#b95b1d">Div</mi>
+                  <mi>j</mi>
+                </msub>
+                <msup>
+                  <mrow>
+                    <mo>(</mo>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <msub>
+                      <mi mathcolor="#15803d">g</mi>
+                      <mn>2</mn>
+                    </msub>
+                    <mo>)</mo>
+                  </mrow>
+                  <mi>j</mi>
+                </msup>
+              </mrow>
+              <msup>
+                <mrow>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>+</mo>
+                  <mi mathcolor="#733599">r</mi>
+                  <mo>)</mo>
+                </mrow>
+                <mi>j</mi>
+              </msup>
+            </mfrac>
+          </mrow>
+        </math>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
