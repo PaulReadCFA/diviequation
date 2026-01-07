@@ -216,7 +216,7 @@
           <mrow>
             <msub>
               <mi mathcolor="#15803d">PV</mi>
-              <mi mathcolor="#15803d">t</mi>
+              <mi>t</mi>
             </msub>
             <mo>=</mo>
             <mfrac>
@@ -232,9 +232,12 @@
                 <mo>)</mo>
               </mrow>
               <mrow>
-                <mi mathcolor="#733599">r</mi>
-                <mo>-</mo>
-                <mi mathcolor="#15803d">g</mi>
+<mrow>
+  <mi mathcolor="#733599">r</mi>
+  <mo>−</mo>
+  <mi mathcolor="#15803d">g</mi>
+</mrow>
+
               </mrow>
             </mfrac>
             <mo>=</mo>
@@ -248,9 +251,12 @@
                 </mrow>
               </msub>
               <mrow>
-                <mi mathcolor="#733599">r</mi>
-                <mo>-</mo>
-                <mi mathcolor="#15803d">g</mi>
+<mrow>
+  <mi mathcolor="#733599">r</mi>
+  <mo>−</mo>
+  <mi mathcolor="#15803d">g</mi>
+</mrow>
+
               </mrow>
             </mfrac>
           </mrow>
@@ -265,102 +271,109 @@
       </p>
       <div class="equation-math">
         <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <msub>
+      <mi mathcolor="#7a46ff">PV</mi>
+      <mi>t</mi>
+    </msub>
+    <mo>=</mo>
+
+    <munderover>
+      <mo>∑</mo>
+      <mrow>
+        <mi>i</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mrow>
+      <mi mathcolor="#3c6ae5">n</mi>
+    </munderover>
+
+    <mfrac>
+      <mrow>
+        <msub>
+          <mi mathcolor="#b95b1d">Div</mi>
+          <mi>t</mi>
+        </msub>
+        <msup>
           <mrow>
-            <msub>
-              <mi mathcolor="#7a46ff">PV</mi>
-              <mn mathcolor="#7a46ff">0</mn>
-            </msub>
-            <mo>=</mo>
-
-            <munderover>
-              <mo>∑</mo>
-              <mrow>
-                <mi>i</mi>
-                <mo>=</mo>
-                <mn>1</mn>
-              </mrow>
-              <mi mathcolor="#3c6ae5">n</mi>
-            </munderover>
-            <mfrac>
-              <mrow>
-                <msub>
-                  <mi mathcolor="#b95b1d">Div</mi>
-                  <mi>i</mi>
-                </msub>
-                <msup>
-                  <mrow>
-                    <mo>(</mo>
-                    <mn>1</mn>
-                    <mo>+</mo>
-                    <msub>
-                      <mi mathcolor="#15803d">g</mi>
-                      <mn>1</mn>
-                    </msub>
-                    <mo>)</mo>
-                  </mrow>
-                  <mi>i</mi>
-                </msup>
-              </mrow>
-              <msup>
-                <mrow>
-                  <mo>(</mo>
-                  <mn>1</mn>
-                  <mo>+</mo>
-                  <mi mathcolor="#733599">r</mi>
-                  <mo>)</mo>
-                </mrow>
-                <mi>i</mi>
-              </msup>
-            </mfrac>
-
+            <mo>(</mo>
+            <mn>1</mn>
             <mo>+</mo>
-
-            <munderover>
-              <mo>∑</mo>
-              <mrow>
-                <mi>j</mi>
-                <mo>=</mo>
-                <mrow>
-                  <mi mathcolor="#3c6ae5">n</mi>
-                  <mo>+</mo>
-                  <mn>1</mn>
-                </mrow>
-              </mrow>
-              <mo>∞</mo>
-            </munderover>
-            <mfrac>
-              <mrow>
-                <msub>
-                  <mi mathcolor="#b95b1d">Div</mi>
-                  <mi>j</mi>
-                </msub>
-                <msup>
-                  <mrow>
-                    <mo>(</mo>
-                    <mn>1</mn>
-                    <mo>+</mo>
-                    <msub>
-                      <mi mathcolor="#15803d">g</mi>
-                      <mn>2</mn>
-                    </msub>
-                    <mo>)</mo>
-                  </mrow>
-                  <mi>j</mi>
-                </msup>
-              </mrow>
-              <msup>
-                <mrow>
-                  <mo>(</mo>
-                  <mn>1</mn>
-                  <mo>+</mo>
-                  <mi mathcolor="#733599">r</mi>
-                  <mo>)</mo>
-                </mrow>
-                <mi>j</mi>
-              </msup>
-            </mfrac>
+            <msub>
+              <mi mathcolor="#15803d">g</mi>
+              <mi>s</mi>
+            </msub>
+            <mo>)</mo>
           </mrow>
-        </math>
+          <mi>i</mi>
+        </msup>
+      </mrow>
+      <msup>
+        <mrow>
+          <mo>(</mo>
+          <mn>1</mn>
+          <mo>+</mo>
+          <mi mathcolor="#733599">r</mi>
+          <mo>)</mo>
+        </mrow>
+        <mi>i</mi>
+      </msup>
+    </mfrac>
+
+    <mo>+</mo>
+
+    <munderover>
+      <mo>∑</mo>
+      <mrow>
+        <mi>j</mi>
+        <mo>=</mo>
+        <mrow>
+          <mi mathcolor="#3c6ae5">n</mi>
+          <mo>+</mo>
+          <mn>1</mn>
+        </mrow>
+      </mrow>
+      <mo>∞</mo>
+    </munderover>
+
+    <mfrac>
+      <mrow>
+        <msub>
+          <mi mathcolor="#b95b1d">Div</mi>
+          <mrow>
+            <mi>t</mi>
+            <mo>+</mo>
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <msup>
+          <mrow>
+            <mo>(</mo>
+            <mn>1</mn>
+            <mo>+</mo>
+            <msub>
+              <mi mathcolor="#15803d">g</mi>
+              <mi>l</mi>
+            </msub>
+            <mo>)</mo>
+          </mrow>
+          <mi>j</mi>
+        </msup>
+      </mrow>
+      <msup>
+        <mrow>
+          <mo>(</mo>
+          <mn>1</mn>
+          <mo>+</mo>
+          <mi mathcolor="#733599">r</mi>
+          <mo>)</mo>
+        </mrow>
+        <mi>j</mi>
+      </msup>
+    </mfrac>
+  </mrow>
+</math>
+
       </div>
     </div>
   </section>
